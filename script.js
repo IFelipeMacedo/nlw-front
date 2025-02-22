@@ -33,16 +33,6 @@ const getTotalSubscribers = (userData) => {
     return subs.length;
 }
 
-const showInvite = (userData) => {
-    app.innerHTML = `
-        <input type="text" id="link" value="https://evento.com?ref=%${userData.ref}" disabled>
-        <div id="status">
-            <h4>${getTotalSubscribers(userData)}</h4>
-            <p>Inscrições feitas</p>
-        </div>
-    `;
-};
-
 const saveUser = (userData) => {
     const newUser = {
         ...userData,
@@ -53,6 +43,15 @@ const saveUser = (userData) => {
     return newUser;
 };
 
+const showInvite = (userData) => {
+    app.innerHTML = `
+        <input type="text" id="link" value="https://evento.com?ref=%${userData.ref}" disabled>
+        <div id="status">
+            <h4>${getTotalSubscribers(userData)}</h4>
+            <p>Inscrições feitas</p>
+        </div>
+    `;
+};
 const formAction = () => {
     const form = document.getElementById("form");
     form.onsubmit = (event) => {
